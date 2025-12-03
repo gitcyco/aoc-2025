@@ -38,6 +38,15 @@ const part1 = (rawInput) => {
 };
 
 // Monotonic stacks... forgot about those, oh joy! lol
+// The basic logic is to keep a stack of the largest numbers
+// by dropping (popping) values until we run out of values to drop.
+// By count, we can only drop as many values as the length of the array
+// minus the length we need for the final result.
+// So - while we still can drop values, if the next value is greater than
+// the top of the stack, pop it, and add the new higher value.
+// Repeat until we run out of values to drop or hit the end.
+// The resulting stack will always be at least the size of the length we need.
+// Then slice off the first N values from the array (N === the length we need)
 const part2 = (rawInput) => {
   const input = parseInput(rawInput);
   const banks = input.split("\n").map((e) => e.trim());
