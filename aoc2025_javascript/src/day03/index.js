@@ -39,7 +39,7 @@ const part1 = (rawInput) => {
 
 // Monotonic stacks... forgot about those, oh joy! lol
 // The basic logic is to keep a stack of the largest numbers
-// by dropping (popping) values until we run out of values to drop.
+// by dropping (popping) values if we find a larger val until we run out of values to drop.
 // By count, we can only drop as many values as the length of the array
 // minus the length we need for the final result.
 // So - while we still can drop values, if the next value is greater than
