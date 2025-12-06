@@ -27,17 +27,8 @@ const part1 = (rawInput) => {
       if (result == null) {
         result = num;
       } else {
-        switch (op) {
-          case "*":
-            result *= num;
-            break;
-          case "+":
-            result += num;
-            break;
-          default:
-            throw new Error("DEFAULT CASE, should not happen!");
-            break;
-        }
+        if (op === "*") result *= num;
+        if (op === "+") result += num;
       }
     }
     total += result;
@@ -70,16 +61,7 @@ const part2 = (rawInput) => {
     }
     if (stop) {
       if (num) row.push(+num);
-      let result = null;
-      for (let val of row) {
-        if (result == null) result = val;
-        else {
-          if (op === "*") result *= val;
-          if (op === "+") result += val;
-        }
-      }
-      total += result;
-
+      total += row.reduce((a, e) => (op === "*" ? a * e : a + e));
       stop = false;
       row = [];
     } else {
@@ -116,5 +98,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: falses,
+  onlyTests: false,
 });
