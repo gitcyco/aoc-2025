@@ -57,10 +57,10 @@ const part2 = (rawInput) => {
     const nextLeft = `${y + 1}, ${x - 1}`;
     const nextRight = `${y + 1},${x + 1}`;
 
-    let leftResult = memo.has(nextLeft)
+    const leftResult = memo.has(nextLeft)
       ? memo.get(nextLeft)
       : traverse(grid, y + 1, x - 1);
-    let rightResult = memo.has(nextRight)
+    const rightResult = memo.has(nextRight)
       ? memo.get(nextRight)
       : traverse(grid, y + 1, x + 1);
 
